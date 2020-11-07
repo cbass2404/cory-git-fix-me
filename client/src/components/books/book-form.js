@@ -21,8 +21,8 @@ class BookForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     fetch("http://localhost:5000/add-book", {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
+      method: "POST",
+      headers: { "content-type": "application/json" },
       body: JSON.stringify({
         title: this.state.title,
         author: this.state.author,
@@ -34,18 +34,17 @@ class BookForm extends Component {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.message === "Success") {
-          this.setState({
-            title: "",
-            author: "",
-            url: "",
-            genre: "action",
-            star_rating: "1",
-            book_read: false,
-            errorText: "",
-          });
-          this.props.history.push("/books");
-        }
+        this.props.handleNewBook(data);
+
+        this.setState({
+          title: "",
+          author: "",
+          url: "",
+          genre: "action",
+          star_rating: "1",
+          book_read: false,
+          errorText: "",
+        });
       })
       .catch(() => {
         this.setState({
