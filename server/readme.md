@@ -7,6 +7,22 @@ $ pipenv shell
 $ pipenv install
 ```
 
+To setup the initial and blank database, inside the `server` folder run the following commands:
+- if you are not already in your pipenv shell:
+```
+$ pipenv shell
+```
+- then the following step by step:
+```
+$ python
+```
+This enters you into a python repl
+```
+$ from app import db
+$ db.create_all()
+```
+This will create the database file in your `server` folder. If it was successful with no errors, you should have a file named `app.sqlite` in your `server` folder.
+
 Run the following in your terminal while inside the `server` folder to start your `server`:
 
 ```
