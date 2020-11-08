@@ -1,16 +1,16 @@
 # Flask (sqlite) Book Server
 
-Starting off, run the following commands in your terminal while in the server folder for the initial setup:
+Starting off, run the following commands in your terminal while in the `server` folder for the initial setup:
 
-```js
-pipenv shell
-pipenv install
+```
+$ pipenv shell
+$ pipenv install
 ```
 
-Run the following in your terminal while inside the server folder to start your server:
+Run the following in your terminal while inside the `server` folder to start your `server`:
 
-```js
-python app.py
+```
+$ python app.py
 ```
 
 New submissions must following format:
@@ -29,25 +29,29 @@ New submissions must following format:
 The following addresses will give access to the CRUD:
 
 - POST
+  - Requires the full schema of the item to be submitted in the body.
 
-```js
+```
 http://localhost:5000/add-book
 ```
 
 - PATCH
+  - Requires only the `"book_read": true or false` in the body to update and the id of the item in the address.
 
-```js
+```
 http://localhost:5000/book-read/<id>
 ```
 
 - GET
+  - requires no body.
 
-```js
+```
 http://localhost:5000/books
 ```
 
 - DELETE
+  - requires only the id to be called.
 
-```js
+```
 http://localhost:5000/delete-book/<id>
 ```
