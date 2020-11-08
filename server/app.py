@@ -62,9 +62,9 @@ def add_book():
 def get_books():
     order = request.args.get('order')
     if order == 'desc':
-        all_books = Book.query.order_by(Book.id.desc()).all()
+        all_books = Book.query.order_by(Book.title.desc()).all()
     else:
-        all_books = Book.query.all()
+        all_books = Book.query.order_by(Book.title.asc()).all()
     result = books_schema.dump(all_books)
     return books_schema.jsonify(result)
 
