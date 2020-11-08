@@ -52,11 +52,11 @@ class BooksList extends Component {
   render() {
     return (
       <div className="books-list-wrapper">
-        <a className="sorting-btn" onClick={this.handleBookOrder}>
+        <button className="sorting-btn" onClick={this.handleBookOrder}>
           {this.state.bookOrder === "asc"
             ? "Sort: Ascending"
             : "Sort: Descending"}
-        </a>
+        </button>
 
         <div className="books-list">{this.renderBooks()}</div>
       </div>
