@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
-import Book from "./book";
-import BookForm from "./book-form";
+import Book from "../books/book";
 
 class BooksList extends Component {
   constructor(props) {
@@ -40,12 +39,6 @@ class BooksList extends Component {
       .then((data) => this.setState({ books: data }));
   };
 
-  handleNewBook = (newBook) => {
-    this.setState((prevState) => ({
-      books: [newBook, ...prevState.books],
-    }));
-  };
-
   componentDidMount() {
     this.handleGetBooks();
   }
@@ -58,13 +51,13 @@ class BooksList extends Component {
 
   render() {
     return (
-      <div>
-        <BookForm books={this.state.books} handleNewBook={this.handleNewBook} />
-        <div>
-          <button onClick={this.handleBookOrder}>
-            {this.state.bookOrder === "asc" ? "A-Z" : "Z-A"}
-          </button>
-        </div>
+      <div className="books-list-wrapper">
+        <a className="sorting-btn" onClick={this.handleBookOrder}>
+          {this.state.bookOrder === "asc"
+            ? "Sort: Ascending"
+            : "Sort: Descending"}
+        </a>
+
         <div className="books-list">{this.renderBooks()}</div>
       </div>
     );

@@ -28,7 +28,7 @@ export default class Book extends Component {
   render() {
     const { id, title, star_rating, author, genre, url } = this.props.book;
     return (
-      <div>
+      <div className="book-wrapper">
         <h2>{title}</h2>
         <div>{star_rating}&#9734;</div>
         <div>{author}</div>

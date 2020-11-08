@@ -2,7 +2,7 @@
 
 To start server initially:
 
-- Run the commands:
+- Run the commands in your terminal while insite the client folder:
 
 ```js
 npm install
