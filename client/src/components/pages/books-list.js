@@ -52,13 +52,19 @@ class BooksList extends Component {
   render() {
     return (
       <div className="books-list-wrapper">
-        <button className="sorting-btn" onClick={this.handleBookOrder}>
-          {this.state.bookOrder === "asc"
-            ? "Sort: Ascending"
-            : "Sort: Descending"}
-        </button>
+        {this.state.books.length ? (
+          <div>
+            <button className="sorting-btn" onClick={this.handleBookOrder}>
+              {this.state.bookOrder === "asc"
+                ? "Sort: Ascending"
+                : "Sort: Descending"}
+            </button>
 
-        <div className="books-list">{this.renderBooks()}</div>
+            <div className="books-list">{this.renderBooks()}</div>
+          </div>
+        ) : (
+          this.props.history.push("/add-book")
+        )}
       </div>
     );
   }
