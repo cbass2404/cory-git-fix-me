@@ -36,7 +36,13 @@ class BooksList extends Component {
   handleGetBooks = () => {
     fetch(`http://localhost:5000/books?order=${this.state.bookOrder}`)
       .then((res) => res.json())
-      .then((data) => this.setState({ books: data }));
+      .then((data) => {
+        if (data.length > 0) {
+          this.setState({ books: data });
+        } else {
+          this.props.history.push("/add-book");
+        }
+      });
   };
 
   componentDidMount() {
@@ -52,13 +58,17 @@ class BooksList extends Component {
   render() {
     return (
       <div className="books-list-wrapper">
-        <button className="sorting-btn" onClick={this.handleBookOrder}>
-          {this.state.bookOrder === "asc"
-            ? "Sort: Ascending"
-            : "Sort: Descending"}
-        </button>
+        <div>
+          {this.state.books.length > 1 ? (
+            <button className="sorting-btn" onClick={this.handleBookOrder}>
+              {this.state.bookOrder === "asc"
+                ? "Sort: Ascending"
+                : "Sort: Descending"}
+            </button>
+          ) : null}
 
-        <div className="books-list">{this.renderBooks()}</div>
+          <div className="books-list">{this.renderBooks()}</div>
+        </div>
       </div>
     );
   }
