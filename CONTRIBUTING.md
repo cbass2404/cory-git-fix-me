@@ -100,20 +100,22 @@ Now submit the pull request.
 
 A team member will review your changes, please keep an eye out for any requested changes during this review. Once all the code is working and they like the changes, they will merge it into the repo. Thank you for the help!
 
-Don't forget to sync your main branch of the fork to the original repository!
 
-## Add a new remote upstream repository
+## What To Do After Your Changes Get Approved
 
-```
-$ git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
-```
+> Don't forget to sync your main branch of the fork to the original repository!  For a more detailed instruction about this, read this article.  https://www.freecodecamp.org/news/how-to-sync-your-fork-with-the-original-git-repository/
 
-## Sync your fork
+1. Add a new remote upstream repository
+    > You only need to do this for the initial sync.
+    ```
+    $ git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
+    ```
 
-```
-$ git fetch upstream
-$ git checkout master
-$ git merge upstream/master
-$ git add .
-$ git push origin
-```
+2. Sync your fork
+    > You need to do this after each successful merge
+    ```
+    $ git fetch upstream
+    $ git checkout master
+    $ git merge upstream/master
+    $ git push origin
+    ```
